@@ -32,7 +32,8 @@ const generateHashMd5 = (name: string) => {
   const postprocessVideoInfo = (videos: (typeof VIDEOS) = []) => {
     return videos.map((video, index) => {
       return {
-        ...video, image: video.image.replace('*', `${index}`),     hashmd5: generateHashMd5(video.name),
+        ...video, image: video.image.replace('*', `${index}`),  
+           hashmd5: generateHashMd5(video.name),
     };
   });
 };
