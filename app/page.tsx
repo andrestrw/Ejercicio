@@ -38,7 +38,7 @@ const Page = async (props: PageParams) => {
         }}
       >
         <Search />
-        <div>{channel}</div>
+        <div>{channel}H</div>
         <Tabs
           centered
           items={[
