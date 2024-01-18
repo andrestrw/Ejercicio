@@ -2,7 +2,7 @@
 
 import { ChannelStats, Search, VideoInfo } from "@/containers";
 import { getVideos } from "./actions";
-import { Pagination, Tabs, SearchChannel } from "@/components";
+import { Pagination, Tabs, SearchChannel, ChannelFound } from "@/components";
 import { ConfigProvider } from "antd";
 import { redirect } from "next/navigation";
 // import SearchChannel from "@/components/searchChannel";
@@ -39,7 +39,7 @@ const Page = async (props: PageParams) => {
         }}
       >
         <Search />
-        <div>{channel}</div>
+        <ChannelFound text={channel}></ChannelFound>
         <Tabs
           centered
           items={[
