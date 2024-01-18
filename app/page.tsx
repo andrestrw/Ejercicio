@@ -63,7 +63,7 @@ const Page = async (props: PageParams) => {
                       />
                     </main>
                   ) : (
-                    <SearchChannel>SEARCH CHANNEL</SearchChannel>
+                    <SearchChannel></SearchChannel>
                   )}
                 </>
               ),
