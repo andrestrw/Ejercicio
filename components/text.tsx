@@ -3,7 +3,7 @@ type TextProps = {
 };
 
 const Text = ({ text }: TextProps) => {
-  return <p className=" text-lg text-gray-100z">{text} </p>;
+  return <p className=" text-lg text-gray-100">{text} </p>;
 };
 
 export default Text;

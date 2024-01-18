@@ -33,7 +33,8 @@ const generateHashMd5 = (name: string) => {
     return videos.map((video, index) => {
       return {
         ...video, image: video.image.replace('*', `${index}`),  
-           hashmd5: generateHashMd5(video.name),
+          //  hashmd5: generateHashMd5(video.name),
+          hashmd5: generateHashMd5(video.name).match(/.{1,10}/g)?.join('\n') || '',
     };
   });
 };
