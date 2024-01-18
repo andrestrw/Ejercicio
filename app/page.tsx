@@ -2,9 +2,10 @@
 
 import { ChannelStats, Search, VideoInfo } from "@/containers";
 import { getVideos } from "./actions";
-import { Pagination, Tabs } from "@/components";
+import { Pagination, Tabs, SearchChannel } from "@/components";
 import { ConfigProvider } from "antd";
 import { redirect } from "next/navigation";
+// import SearchChannel from "@/components/searchChannel";
 
 type PageParams = {
   searchParams: {
@@ -62,7 +63,7 @@ const Page = async (props: PageParams) => {
                       />
                     </main>
                   ) : (
-                    <div>Busque canal</div>
+                    <SearchChannel>SEARCH CHANNEL</SearchChannel>
                   )}
                 </>
               ),
