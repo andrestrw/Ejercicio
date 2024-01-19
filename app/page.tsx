@@ -22,64 +22,53 @@ const Page = async (props: PageParams) => {
   if (auth && !JSON.parse(auth)) {
     redirect("/login");
   }
+  // DATA FETCHING
+
   const { videos, maxItems, channelStats } = await getVideos({ channel, page });
 
   return (
     <div>
-      <ConfigProvider
-        theme={{
-          components: {
-            Tabs: {
-              /* here is your component tokens */ colorText: "white",
-              inkBarColor: "white",
-              itemSelectedColor: "white",
-              itemHoverColor: "white",
-            },
+      <Search />
+      <ChannelFound text={channel}></ChannelFound>
+      <Tabs
+        centered
+        items={[
+          {
+            key: "1",
+            label: "Video List",
+            children: (
+              <>
+                {channel ? (
+                  <main className="container mx-auto py-32 px-8">
+                    <div className="grid lg:grid-cols-5  md:grid-cols-2 grid-cols-1 gap-6 ">
+                      {videos &&
+                        videos.map((videoInfo) => (
+                          <VideoInfo key={videoInfo.name} {...videoInfo} />
+                        ))}
+                    </div>
+                    <Pagination
+                      simple
+                      total={maxItems}
+                      current={Number(page)}
+                    />
+                  </main>
+                ) : (
+                  <SearchChannel></SearchChannel>
+                )}
+              </>
+            ),
           },
-        }}
-      >
-        <Search />
-        <ChannelFound text={channel}></ChannelFound>
-        <Tabs
-          centered
-          items={[
-            {
-              key: "1",
-              label: "Videos",
-              children: (
-                <>
-                  {channel ? (
-                    <main className="container mx-auto py-32 px-8">
-                      <div className="grid lg:grid-cols-5  md:grid-cols-2 grid-cols-1 gap-6 ">
-                        {videos &&
-                          videos.map((videoInfo) => (
-                            <VideoInfo key={videoInfo.name} {...videoInfo} />
-                          ))}
-                      </div>
-                      <Pagination
-                        simple
-                        total={maxItems}
-                        current={Number(page)}
-                      />
-                    </main>
-                  ) : (
-                    <SearchChannel></SearchChannel>
-                  )}
-                </>
-              ),
-            },
-            {
-              key: "2",
-              label: "Channel Stats",
-              children: (
-                <>
-                  <ChannelStats channelStats={channelStats} />
-                </>
-              ),
-            },
-          ]}
-        />
-      </ConfigProvider>
+          {
+            key: "2",
+            label: "Channel Stats",
+            children: (
+              <>
+                <ChannelStats channelStats={channelStats} />
+              </>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 };
