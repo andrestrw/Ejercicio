@@ -1,7 +1,7 @@
 import { ConfigProvider } from "antd";
 import BaseTabs, { TabsProps } from "antd/es/tabs";
 
-const Tabs = (props: TabsProps) => {
+const Tabs = ({ ...props }: TabsProps) => {
   return (
     <ConfigProvider
       theme={{
