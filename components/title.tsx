@@ -4,9 +4,7 @@ type TitleProps = {
 
 const Title = ({ title }: TitleProps) => {
   return (
-    <h3 className="text-2xl font-bold md:text-3xl text-white-100 mb-3">
-      {title}
-    </h3>
+    <h3 className="text-2xl font-bold md:text-3xl text-white mb-3">{title}</h3>
   );
 };
 
