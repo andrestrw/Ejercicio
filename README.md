@@ -1,3 +1,5 @@
+// Download the develop branch in zip format and continue the following steps //
+
 GETTING STARTED
 
 1 -> npm install
