@@ -26,7 +26,7 @@ const VideoInfo = ({ name, date, visits, hashmd5, image }: VideoInfoProps) => {
         sizes="(width: 100%)"
         className="rounded-t-lg w-full"
       />
-      <div className="p-5">
+      <div className="p-5  ">
         <Title title={name}></Title>
         <p className=" text-lg  font-normal text-gray-100">Date: {date}</p>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useURL } from "@/hooks";
+import { ConfigProvider } from "antd";
 import BasePaginate, { PaginationProps } from "antd/es/pagination";
 import { useState } from "react";
 
@@ -15,13 +16,26 @@ const Pagination = (props: PaginationProps) => {
   };
 
   return (
-    <div className="flex justify-center pt-16">
-      <BasePaginate
-        {...props}
-        onChange={onChange}
-        current={current}
-        showSizeChanger={false}
-      />
+    <div className="flex justify-center pb-12">
+      <ConfigProvider
+        theme={{
+          token: {
+            colorText: "white",
+            colorTextPlaceholder: "white",
+            colorTextDisabled: "white",
+            colorBgTextActive: "white",
+            colorBgTextHover: "white",
+            colorBgContainer: "#1a237e",
+          },
+        }}
+      >
+        <BasePaginate
+          {...props}
+          onChange={onChange}
+          current={current}
+          showSizeChanger={false}
+        />
+      </ConfigProvider>
     </div>
   );
 };

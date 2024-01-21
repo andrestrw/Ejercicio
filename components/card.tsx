@@ -1,10 +1,24 @@
 type CardProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
+  flex?: string;
+  justify?: string;
+  padding?: string;
+  align?: string;
 };
 
-const Card = ({ children }: CardProps) => {
+const Card = ({
+  flex = "",
+  justify = "",
+  padding = "",
+  children,
+  align = "",
+}: CardProps) => {
   return (
-    <div className="shadow-lg rounded-lg border border-white">{children}</div>
+    <div
+      className={`shadow-lg rounded-lg border ${flex}  ${justify} ${align}  ${padding} border-white `}
+    >
+      {children}
+    </div>
   );
 };
 
