@@ -3,7 +3,6 @@
 import { ChannelStats, Search, VideoInfo } from "@/containers";
 import { getVideos } from "./actions";
 import { Pagination, Tabs, SearchChannel, ChannelFound } from "@/components";
-import { ConfigProvider } from "antd";
 import { redirect } from "next/navigation";
 // import SearchChannel from "@/components/searchChannel";
 
