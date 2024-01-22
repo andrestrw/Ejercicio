@@ -1,4 +1,4 @@
-// ** Download the develop branch in zip format and continue the following steps ** // 
+// ** Download the develop branch in zip format and continue the following steps ** //
 
 GETTING STARTED
 
