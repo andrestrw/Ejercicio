@@ -14,7 +14,7 @@ const Search = () => {
   const { setQuery } = useURL();
   const onSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    console.log("MANEJADOR DE EVENTOS DEL FORMULARIO", e);
+
     const channel = (e as ValueInput)?.target[0].value;
     setQuery({ channel, page: 1 });
   };
