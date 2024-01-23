@@ -3,6 +3,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 const useURL = () => {
     const search = useSearchParams();
   const url = new URLSearchParams(search as any);
+
+  
   const path = usePathname();
 
   const { replace } = useRouter();
@@ -13,6 +15,7 @@ const useURL = () => {
   search?.forEach((value, key) => {
     query[key] = value;
   });
+
 
   const setQuery = (params: any = {}) => {
     Object.entries(params).forEach(([key, value]) => {

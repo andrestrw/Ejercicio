@@ -25,7 +25,7 @@ const Page = async (props: PageParams) => {
   const {
     searchParams: { page, channel, auth },
   } = props;
-  if (auth && !JSON.parse(auth)) {
+  if (!JSON.parse(auth ?? false)) {
     redirect("/login");
   }
   // DATA FETCHING
