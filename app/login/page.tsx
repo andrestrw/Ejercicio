@@ -11,10 +11,13 @@ type SubmitData = {
 };
 
 const Login = () => {
+  // ! Pending -> F -> T -> F
   const [pending, start] = useTransition();
 
+  // !  data -> username / password
   const onFinish = async (data: SubmitData) => {
     start(async () => {
+      console.log(data);
       await login(data);
     });
   };

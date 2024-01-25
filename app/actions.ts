@@ -5,13 +5,19 @@ import crypto from 'crypto';
 
 import { VIDEOS, CHANNEL_STATS } from "./mock";
 
+type LoginData = {
+  username: string
+  password : string
+}
 
 const MAX_VIDEO_PER_PAGE = 10 as const;
 const CREDENTIALS = {
   USERNAME: 'CEO',
   PASSWORD: '123456',} as const;
   
-  export async function login({ username, password }: any) {
+
+// ! Validamos el valor de username y password  
+  export async function login({ username, password }: LoginData) {
     if (username === CREDENTIALS.USERNAME && password === CREDENTIALS.PASSWORD) {redirect('/?auth=true');
 }
 }
