@@ -1,4 +1,4 @@
-// ** Download the develop branch in zip format and continue the following steps ** //
+// ** Download version 0.0.1 through the tag in zip format and continue the following steps ** //
 
 GETTING STARTED
 

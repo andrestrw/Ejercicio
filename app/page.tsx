@@ -25,7 +25,7 @@ const Page = async (props: PageParams) => {
   const {
     searchParams: { page, channel, auth },
   } = props;
-  if (auth && !JSON.parse(auth)) {
+  if (!JSON.parse(auth ?? false)) {
     redirect("/login");
   }
   // DATA FETCHING
@@ -44,6 +44,7 @@ const Page = async (props: PageParams) => {
             label: "Video List",
             children: (
               <>
+                {/* ? truthy : falsy */}
                 {channel ? (
                   <Centered>
                     <Pagination
@@ -69,11 +70,15 @@ const Page = async (props: PageParams) => {
             label: "Channel Stats",
             children: (
               <>
-                <Centered>
-                  <Grid colsLg={4}>
-                    <ChannelStats channelStats={channelStats} />
-                  </Grid>
-                </Centered>
+                {channel ? (
+                  <Centered>
+                    <Grid colsLg={4}>
+                      <ChannelStats channelStats={channelStats} />
+                    </Grid>
+                  </Centered>
+                ) : (
+                  <SearchChannel></SearchChannel>
+                )}
               </>
             ),
           },
